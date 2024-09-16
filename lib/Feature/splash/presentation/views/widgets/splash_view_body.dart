@@ -1,5 +1,6 @@
 import 'package:bookly_app/Feature/home/presentation/views/home_view.dart';
 import 'package:bookly_app/Feature/splash/presentation/views/widgets/sliding_text.dart';
+import 'package:bookly_app/assets_data.dart';
 import 'package:bookly_app/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -39,7 +40,7 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Image.asset("assets/images/Logo.png"),
+        Image.asset(AssetsData.logo),
         const SizedBox(height: 0,),
         SlidingText(slidingAnimation: slidingAnimation),
       ],
