@@ -1,5 +1,8 @@
+import 'package:bookly_app/Feature/home/presentation/views/home_view.dart';
 import 'package:bookly_app/Feature/splash/presentation/views/widgets/sliding_text.dart';
+import 'package:bookly_app/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -13,17 +16,20 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
   late AnimationController animationController ;
   late Animation<Offset> slidingAnimation ;
 
-  @override
+  @override   
   void initState() {
     
     super.initState();
     initSlidingAnimation();
+    navigateToHome();
+
   }
+
+
 
 
   @override
   void dispose() {
-    // Dispose of the controller to avoid memory leaks
     animationController.dispose();
     super.dispose();
   }
@@ -37,6 +43,14 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
         const SizedBox(height: 0,),
         SlidingText(slidingAnimation: slidingAnimation),
       ],
+    );
+  }
+  /*--------------------------- Metods-------------------------- */
+    // this is navigateToHome Method
+    void navigateToHome() {
+    Future.delayed(const Duration(seconds: 2) ,(){
+      Get.to(()=>const HomeView() , transition: Transition.fade , duration: kPrimaryDuration );
+    }
     );
   }
 
