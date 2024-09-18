@@ -1,3 +1,4 @@
+import 'package:bookly_app/assets_data.dart';
 import 'package:flutter/material.dart';
 
 class FeaturedListViewItem extends StatelessWidget {
@@ -12,7 +13,7 @@ class FeaturedListViewItem extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(10)),
           image: DecorationImage(
             fit: BoxFit.fill,
-            image: NetworkImage("https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg",)
+            image: NetworkImage(AssetsData.networkImage,)
             ),
         ),
       )
