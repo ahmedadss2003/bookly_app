@@ -1,8 +1,10 @@
 import 'package:bookly_app/Feature/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly_app/assets_data.dart';
 import 'package:bookly_app/constant.dart';
+import 'package:bookly_app/core/utilts/app_router.dart';
 import 'package:bookly_app/core/utilts/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BestSallerListViewItem extends StatelessWidget {
   const BestSallerListViewItem({super.key});
@@ -11,16 +13,21 @@ class BestSallerListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SizedBox(
-          height: 125,//here i don,t need make the height are responsive take this notes 
-          child: AspectRatio(
-            aspectRatio: 2.6/4,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(10  ),
-              child: Image.network(        
-                AssetsData.networkImage,
-                fit: BoxFit.fill,
-                ),
+        GestureDetector(
+          onTap: (){
+            GoRouter.of(context).push(AppRouter.kBookDetailes) ;
+          },
+          child: SizedBox(
+            height: 125,//here i don,t need make the height are responsive take this notes 
+            child: AspectRatio(
+              aspectRatio: 2.6/4,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10  ),
+                child: Image.network(        
+                  AssetsData.networkImage,
+                  fit: BoxFit.fill,
+                  ),
+              ),
             ),
           ),
         ),
