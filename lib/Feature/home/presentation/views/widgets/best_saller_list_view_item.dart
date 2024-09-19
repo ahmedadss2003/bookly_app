@@ -3,7 +3,6 @@ import 'package:bookly_app/assets_data.dart';
 import 'package:bookly_app/constant.dart';
 import 'package:bookly_app/core/utilts/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 
 class BestSallerListViewItem extends StatelessWidget {
   const BestSallerListViewItem({super.key});
@@ -50,7 +49,7 @@ class BestSallerListViewItem extends StatelessWidget {
                   const Spacer(),
                   const BooksRating(),
                 ],
-                           )
+              )
             ],
             ),
          ),
