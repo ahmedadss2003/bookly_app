@@ -14,7 +14,6 @@ class Styles {
   );
 
     static const textStyle20 = TextStyle(
-    fontFamily: kGelasio,  
     fontSize: 20 ,
     fontWeight: FontWeight.normal
   );
@@ -24,7 +23,7 @@ class Styles {
     fontSize: 30 ,
     fontWeight: FontWeight.normal
   );
-  
+
     static const textStyle16 = TextStyle(
     fontSize: 16 ,
     fontWeight: FontWeight.w500
