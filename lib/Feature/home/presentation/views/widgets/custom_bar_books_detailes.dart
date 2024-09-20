@@ -13,16 +13,15 @@ class CustomBarBookDetailes extends StatelessWidget {
         Container(
           decoration:const BoxDecoration(
           color: Colors.white,
-
           borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20.0), 
           bottomLeft: Radius.circular(20.0), 
           ),
           ),
           width: width*0.4 ,
-          height: 60,
+          height: 50,
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 15.0),
+            padding: const EdgeInsets.symmetric(vertical: 10.0),
             child: Text(
               "19.19 £"  ,
                textAlign: TextAlign.center,
@@ -39,9 +38,9 @@ class CustomBarBookDetailes extends StatelessWidget {
           ),
           ),
           width: width*0.4 ,
-          height: 60,
+          height: 50,
           child:const Padding(
-            padding: EdgeInsets.symmetric(vertical: 15.0),
+            padding: EdgeInsets.symmetric(vertical: 10.0),
             child: Text(
               "Free Review"  ,
               textAlign: TextAlign.center,
