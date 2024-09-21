@@ -4,3 +4,7 @@
 4-عمليه الراوتر
 5-Refactoring Bar of Detailes view
 6-Again Search About (SliverFillRemaining)
+
+7- dividing the screen => sections and each section to small component
+
+(https://www.googleapis.com/books/v1/volumes?q=programming)
