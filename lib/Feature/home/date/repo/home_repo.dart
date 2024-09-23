@@ -4,5 +4,5 @@ import 'package:dartz/dartz.dart';
 
 abstract class HomeRepo { //this Abstract Class Use To Add The metod Without Implementation
   Future<Either<Failures , List<BookModel>>> fetchFeatureBooks();//please unerstand this Well
-  Future<Either<Failures , List<BookModel>>> fetchBestSallerBooks();
+  Future<Either<Failures , List<BookModel>>> fetchNewsedBooks();
 } 
