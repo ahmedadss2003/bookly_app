@@ -40,7 +40,7 @@ class BookModel extends Equatable {
 				accessInfo: json['accessInfo'] == null
 						? null
 						: AccessInfo.fromJson(json['accessInfo'] as Map<String, dynamic>),
-				searchInfo: json['searchInfo'] == null
+				searchInfo: json['searchInfo'] == null    
 						? null
 						: SearchInfo.fromJson(json['searchInfo'] as Map<String, dynamic>),
 			);
