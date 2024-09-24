@@ -10,3 +10,5 @@
 (https://www.googleapis.com/books/v1/volumes?q=programming)
 
 8-API failure it's very important very very very please review it & review On The video.
+
+9-Register singleton -> (GetIt) Package in services Locator file very very important ;

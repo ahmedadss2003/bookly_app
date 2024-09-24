@@ -11,7 +11,7 @@ class HomeRepoImpl implements HomeRepo{
 
   HomeRepoImpl({required this.apiServices});
   @override
-  Future<Either<Failures, List<BookModel>>> fetchNewsedBooks() async{
+  Future<Either<Failures, List<BookModel>>> fetchNewsedBooks() async{ //(Either)->from dartz package
   try {
   var data = await apiServices.get(endPoint:"volumes?q=subject: programming&filter=free-ebooks&orderBy=newest") ;
   List<BookModel> book =[]  ;
