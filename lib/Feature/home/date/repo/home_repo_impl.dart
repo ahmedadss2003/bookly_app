@@ -6,42 +6,51 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 //-2
-class HomeRepoImpl implements HomeRepo{
-  final ApiServices apiServices ;
-
+class HomeRepoImpl implements HomeRepo {
+  final ApiServices apiServices;
+  
   HomeRepoImpl({required this.apiServices});
+  
   @override
-  Future<Either<Failures, List<BookModel>>> fetchNewsedBooks() async{ //(Either)->from dartz package
-  try {
-  var data = await apiServices.get(endPoint:"volumes?q=subject: programming&filter=free-ebooks&orderBy=newest") ;
-  List<BookModel> book =[]  ;
-  for (var item in data["items"]) {
-    book.add(item);
-  }
-  return right(book);
-}  catch (e) {
-  if(e is DioException){
-    return left(ServerFailure.fromDioError(e));
-  }
-  return left(ServerFailure(e.toString()));
-}
+  Future<Either<Failures, List<BookModel>>> fetchNewstBooks() async {
+    try {
+      var data = await apiServices.get(endPoint: "volumes?q=subject:programming&filter=free-ebooks&orderBy=newest");
+      
+        List<BookModel>books= (data["items"] as List).map((item){
+          // Ensure each item is a Map<String, dynamic> and then convert it to BookModel
+          return BookModel.fromJson(item as Map<String, dynamic>);
+        }
+        ).toList();
+
+        return right(books);
+     
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
   }
 
   @override
-  Future<Either<Failures, List<BookModel>>> fetchFeatureBooks()async {
-  try {
-  var data = await apiServices.get(endPoint:"volumes?q=subject: programming&filter=free-ebooks") ;
-  List<BookModel> book =[]  ;
-  for (var item in data["items"]) {
-    book.add(item);
+  Future<Either<Failures, List<BookModel>>> fetchFeatureBooks() async {
+    try {
+      var data = await apiServices.get(endPoint: "volumes?q=subject: programming&filter=free-ebooks");
+      
+      if (data["items"] != null) {
+        List<BookModel> books = (data["items"] as List).map((item) {
+          return BookModel.fromJson(item as Map<String, dynamic>);
+        }).toList();
+        
+        return right(books);
+      } else {
+        return left(ServerFailure("No items found"));
+      }
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
   }
-  return right(book);
-}  catch (e) {
-  if(e is DioException){
-    return left(ServerFailure.fromDioError(e));
-  }
-  return left(ServerFailure(e.toString()));
-}
-  }
-
 }

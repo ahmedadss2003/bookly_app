@@ -8,6 +8,7 @@ abstract class Failures {
 }
 
 class ServerFailure extends Failures{
+  
   ServerFailure( super.errMessage);
 
  factory ServerFailure.fromDioError(DioException dioException){//DioException=> Handling All The Exceptions That Occure From Dio

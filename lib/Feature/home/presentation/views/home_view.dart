@@ -16,7 +16,7 @@ class HomeView extends StatelessWidget {
         BlocProvider(
           create: (context) => FeatureBookCubit( // Note Here i will use singleton 
             getIt.get<HomeRepoImpl>() ,
-          ),
+          )..fetchFeatureBooks(),
         ),
         BlocProvider(
           create: (context) => NewstBooksCubit(
