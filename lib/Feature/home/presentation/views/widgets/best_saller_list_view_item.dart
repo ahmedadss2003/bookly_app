@@ -1,5 +1,6 @@
+import 'package:bookly_app/Feature/home/date/models/book_model/book_model.dart';
 import 'package:bookly_app/Feature/home/presentation/views/widgets/book_rating.dart';
-import 'package:bookly_app/assets_data.dart';
+import 'package:bookly_app/Feature/home/presentation/views/widgets/custom_list_view_item.dart';
 import 'package:bookly_app/constant.dart';
 import 'package:bookly_app/core/utilts/app_router.dart';
 import 'package:bookly_app/core/utilts/styles.dart';
@@ -7,8 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BestSallerListViewItem extends StatelessWidget {
-  const BestSallerListViewItem({super.key});
-
+  const BestSallerListViewItem({super.key, required this.bookModel});
+  final BookModel bookModel ;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -19,16 +20,7 @@ class BestSallerListViewItem extends StatelessWidget {
           },
           child: SizedBox(
             height: 125,//here i don,t need make the height are responsive take this notes 
-            child: AspectRatio(
-              aspectRatio: 2.6/4,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10  ),
-                child: Image.network(        
-                  AssetsData.networkImage,
-                  fit: BoxFit.fill,
-                  ),
-              ),
-            ),
+            child:CustomBookImage(imgUrl: bookModel.volumeInfo.imageLinks.smallThumbnail)
           ),
         ),
         const SizedBox(width: 30,),
@@ -39,7 +31,7 @@ class BestSallerListViewItem extends StatelessWidget {
               SizedBox(
                 width: MediaQuery.of(context).size.width*0.5,
                 child: Text(
-                  "Ahmed Ashraf ahmed  awiunqie asiie" ,
+                  bookModel.volumeInfo.title!,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: Styles.textStyle20.copyWith(
@@ -48,11 +40,15 @@ class BestSallerListViewItem extends StatelessWidget {
                 ),
                 
               ),
-              const Text("This is Book",style: Styles.textStyle14,),
+               Text(
+                  (bookModel.volumeInfo.authors != null && bookModel.volumeInfo.authors!.isNotEmpty)
+      ? bookModel.volumeInfo.authors![0]
+      : '',
+                style: Styles.textStyle14,),
               const SizedBox(height: 3,), 
                Row(
                 children: [
-                  Text("19.19 £",style: Styles.textStyle20.copyWith(fontWeight: FontWeight.bold),),
+                  Text("Free",style: Styles.textStyle20.copyWith(fontWeight: FontWeight.bold),),
                   const Spacer(),
                   const BooksRating(),
                 ],

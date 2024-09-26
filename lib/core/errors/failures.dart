@@ -14,7 +14,7 @@ class ServerFailure extends Failures{
  factory ServerFailure.fromDioError(DioException dioException){//DioException=> Handling All The Exceptions That Occure From Dio
   switch(dioException.type){
     case DioExceptionType.connectionTimeout:
-      return ServerFailure("connection Timeout With Api Server");
+      return ServerFailure("Please Check Your internet");
     case DioExceptionType.sendTimeout:
       return ServerFailure("send Timeout With Api Server");
     case DioExceptionType.receiveTimeout:

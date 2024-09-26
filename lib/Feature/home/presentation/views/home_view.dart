@@ -21,7 +21,7 @@ class HomeView extends StatelessWidget {
         BlocProvider(
           create: (context) => NewstBooksCubit(
             getIt.get<HomeRepoImpl>(),
-            ),
+            )..fetchNewstBooks(),
         ),
       ],
       child:const Scaffold(

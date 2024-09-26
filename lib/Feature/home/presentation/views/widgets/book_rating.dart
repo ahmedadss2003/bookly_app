@@ -4,7 +4,6 @@ import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 
 class BooksRating extends StatelessWidget {
   const BooksRating({super.key});
-
   @override
   Widget build(BuildContext context) {
     return  Padding(

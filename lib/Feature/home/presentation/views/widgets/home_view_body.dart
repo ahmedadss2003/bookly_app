@@ -10,6 +10,7 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const CustomScrollView(
+    physics:  BouncingScrollPhysics(),
     slivers: [
       SliverToBoxAdapter(
         child: Column(
@@ -23,7 +24,7 @@ class HomeViewBody extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 24),
                 child: Text( 
-                  "Best Saller",
+                  "Newst Books",
                   style: Styles.textStyle18,
                 ),
               ),
@@ -33,7 +34,7 @@ class HomeViewBody extends StatelessWidget {
         ),
       ),
       SliverFillRemaining( //this is like expaned tell the child to take المساحه المتبقيه Becuse shrinkwrap make the listview build the list first time and this is opposite to his work => NOw can remove the shrinkwrap 
-        child: BestSallerListView(),
+        child: NewstBooksListView(),
       )
     ],
     );

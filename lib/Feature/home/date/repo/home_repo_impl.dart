@@ -14,7 +14,7 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failures, List<BookModel>>> fetchNewstBooks() async {
     try {
-      var data = await apiServices.get(endPoint: "volumes?q=subject:programming&filter=free-ebooks&orderBy=newest");
+      var data = await apiServices.get(endPoint: "volumes?q=subject: programming&filter=free-ebooks&orderBy=newest");
       
         List<BookModel>books= (data["items"] as List).map((item){
           // Ensure each item is a Map<String, dynamic> and then convert it to BookModel
